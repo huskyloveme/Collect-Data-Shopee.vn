@@ -94,5 +94,6 @@ if __name__ == '__main__':
         with open("log_crawl.txt", "a") as file_log:
             file_log.write(f"CATE: {ind}, with {count_collected}/{count_real} product\n")
 
+
         print(f"CATE: {ind}, with {count_collected}/{count_real} product")
 
