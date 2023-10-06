@@ -91,7 +91,7 @@ if __name__ == '__main__':
                 if index % 4 == 0:
                     browser.execute_script(f"window.scrollTo(200, {800+320*(index/4)});")
 
-        with open("log_crawl.txt", "a") as file_log:
+        with open("LOG/log_crawl.txt", "a") as file_log:
             file_log.write(f"CATE: {ind}, with {count_collected}/{count_real} product\n")
 
 
