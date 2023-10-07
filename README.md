@@ -1,8 +1,8 @@
 * ###### Project description:
-  - Collect and handle data from Shopee e-commerce
-  - Take about 3k products from big categories
+  - Collect and handle data from Shopee.vn e-commerce
+  - Take about at least 3k products from each big category
 
-![img.png](img.png)
+![img.png](image/img.png)
 
 * ###### Flow project:
 
@@ -20,9 +20,10 @@
 
     + Step4: Load data from MongoDB to CSV
         + run `mongo_to_csv.py` -> `output_data.csv`
+      
+      ![img_1.png](image/img_1.png)
 
+    
 * ###### Evaluate the project:
-
-* ###### Evaluate the project:
-  + Take almost 100% (eval by LOG) products** showing on all categies of [Shopee.vn]()
+  + Take almost 100% (evaluate by LOG) products** showing on all categies of [Shopee.vn]()
   + Collected about **133k products** within **9-10 hours** (about **220-240 products/minute**)
