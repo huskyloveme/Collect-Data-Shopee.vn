@@ -19,10 +19,10 @@
         + run `main.py` -> MongoDB 
 
     + Step4: Load data from MongoDB to CSV
-        + run `mongo_to_csv.py` -> `data_products.csv`
+        + run `mongo_to_csv.py` -> `output_data.csv`
 
 * ###### Evaluate the project:
 
 * ###### Evaluate the project:
-  + Take about **>85-90% products** showing on all categies of [Shopee.vn]()
-  + Collected about **120k products** within **12 hours** (about **170 products/minute**)
+  + Take almost 100% (eval by LOG) products** showing on all categies of [Shopee.vn]()
+  + Collected about **133k products** within **9-10 hours** (about **220-240 products/minute**)
