@@ -1,4 +1,3 @@
-import csv
 import time
 from schema import schema_data
 from selenium import webdriver
@@ -8,7 +7,6 @@ from mongo_to_csv import collection
 
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
-
 def list_url_cates():
     list_urls = []
     file_path = os.path.join(current_directory, 'MAKE_URL_CATES/list_child_categories.txt')
@@ -17,11 +15,6 @@ def list_url_cates():
             if str(line).strip("\n") != "":
                 list_urls.append(str(line).strip("\n"))
     return list_urls
-
-def write_record_to_csv(line, file_name):
-    with open(file_name, 'a') as file:
-        file.write(line.strip("\n"))
-        file.write("\n")
 
 if __name__ == '__main__':
 
@@ -39,7 +32,6 @@ if __name__ == '__main__':
             time.sleep(3)
             elements = browser.find_elements(By.CLASS_NAME, "shopee-search-item-result__item")
             browser.execute_script(f"window.scrollTo(200, {800});")
-            time.sleep(3)
             count_real += len(elements)
             data_product = schema_data
             for index, element in enumerate(elements):
@@ -84,16 +76,26 @@ if __name__ == '__main__':
                             if data_product['product_soldout'] and price:
                                 data_product['product_revenue'] = price * data_product['product_soldout']
 
+                            # RATING
+                            list_rating = a_element.find_elements(By.CLASS_NAME,"shopee-rating-stars__lit")
+                            if list_rating:
+                                rating = 0
+                                for rat in list_rating:
+                                    str_rating = str(rat.get_attribute('style')).strip('%;').split('width: ')[1]
+                                    float_rating = float(str_rating)/100
+                                    rating += float_rating
+                                data_product['product_rating'] = round(rating,1)
                             document = data_product.copy()
                             x = collection.insert_one(document)
                     except Exception as e:
                         continue
+
                 if index % 4 == 0:
                     browser.execute_script(f"window.scrollTo(200, {800+320*(index/4)});")
 
         with open("LOG/log_crawl.txt", "a") as file_log:
-            file_log.write(f"CATE: {ind}, with {count_collected}/{count_real} product\n")
+            file_log.write(f"CATE: {ind}, with {count_collected}/{count_real} products\n")
 
 
-        print(f"CATE: {ind}, with {count_collected}/{count_real} product")
+        print(f"CATE: {ind}, with {count_collected}/{count_real} products")
 

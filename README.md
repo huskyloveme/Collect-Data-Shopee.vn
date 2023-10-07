@@ -4,7 +4,7 @@
 
 ![img.png](img.png)
 
-* ###### Collect data flow:
+* ###### Flow project:
 
     + Step1: Take all the big categories on Shopee:
   
@@ -22,5 +22,7 @@
         + run `mongo_to_csv.py` -> `data_products.csv`
 
 * ###### Evaluate the project:
-  + Take about **>95% products** showing on all categies of [Shopee.vn]()
+
+* ###### Evaluate the project:
+  + Take about **>85-90% products** showing on all categies of [Shopee.vn]()
   + Collected about **120k products** within **12 hours** (about **170 products/minute**)
