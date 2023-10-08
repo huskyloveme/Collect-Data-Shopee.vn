@@ -9,7 +9,7 @@ current_directory = os.path.dirname(os.path.abspath(__file__))
 
 def list_url_cates():
     list_urls = []
-    file_path = os.path.join(current_directory, 'MAKE_URL_CATES/list_child_categories.txt')
+    file_path = os.path.join(current_directory, 'make_url_cates/list_child_categories.txt')
     with open(file_path, "r") as file:
         for line in file:
             if str(line).strip("\n") != "":
@@ -93,7 +93,7 @@ if __name__ == '__main__':
                 if index % 4 == 0:
                     browser.execute_script(f"window.scrollTo(200, {800+320*(index/4)});")
 
-        with open("LOG/log_crawl.txt", "a") as file_log:
+        with open("log/log_crawl.txt", "a") as file_log:
             file_log.write(f"CATE: {ind}, with {count_collected}/{count_real} products\n")
 
 
